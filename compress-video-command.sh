@@ -21,8 +21,9 @@ output="${dir}/${name}-compressed.${container}"
 
 ffmpeg -y -i "$input" \
   -vf "scale=1280:-2" \
-  -c:v h264_videotoolbox -q:v 65 \
+  -c:v hevc_videotoolbox -q:v 65 \
   -c:a aac -b:a 128k \
+  -tag:v hvc1 \
   -allow_sw 0 \
   -realtime 0 \
   -movflags +faststart \
